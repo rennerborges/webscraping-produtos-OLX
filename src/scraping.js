@@ -33,7 +33,7 @@ const listaLinks = async () => {
     try {
         const html = await getPage(siteAlvo);
         const $ = await cheerio.load(html);
-        await $('#ad-list a').async.each(async (i, link) => {
+        await $('#ad-list a').each(async (i, link) => {
             link = $(link).attr('href');
 
             const produtos = await coletarDadosProduto(link)
